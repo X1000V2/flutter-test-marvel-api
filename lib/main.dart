@@ -1,5 +1,6 @@
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_test_marvel_api/mainScreen/MainScreen.dart';
 
 void main() => runApp(MyApp());
 
@@ -7,12 +8,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        initialRoute: '/',
+        routes: {
+          // When we navigate to the "/" route, build the FirstScreen Widget
+          '/': (context) => MyHomePage(title: 'Flutter Demo Home Page'),
+          // When we navigate to the "/second" route, build the SecondScreen Widget
+          '/MainScreen': (context) => MainScreen(),
+        });
   }
 }
 
@@ -23,19 +29,46 @@ class MyHomePage extends StatefulWidget {
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
+
+  void onLoad(BuildContext context) {
+    splash(context);
+  }
+
+  void splash(BuildContext context) {
+    //delay 6 seconds to go main screen
+    Future.delayed(Duration(milliseconds: 9000), () {
+      //navigate to main screen
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => MainScreen()),
+      );
+    });
+  }
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: FlareActor("animations/boring_star.flr",
+          child: Column(
+        children: <Widget>[
+          Container(
+            height: 400,
+            child: FlareActor("animations/loading_simple_ball.flr",
                 alignment: Alignment.center,
-                fit: BoxFit.contain,
-                animation: "rotate_scale_color")
-        ),
+                fit: BoxFit.none,
+                animation: "loading"),
+          ),
+          Text("Splash screen using Flare...")
+        ],
+      )),
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    widget.onLoad(context);
   }
 }
