@@ -1,5 +1,8 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_test_marvel_api/common/resources/CustomColors.dart';
+import 'package:flutter_test_marvel_api/common/resources/StringsConstants.dart';
+import 'package:flutter_test_marvel_api/mainScreen/BottomBar.dart';
 
 class MainScreen extends StatelessWidget{
   @override
@@ -7,11 +10,13 @@ class MainScreen extends StatelessWidget{
     
     return Scaffold(
 		appBar: AppBar(
-			title: Text("Main Screen"),
+      backgroundColor: Color(CustomColors.COLOR_RED),
+			title: Text(StringsConstants.MAIN_SCREEN_TITLE),
 		),
 		body: Center(
-			child: Text("Main Screen body"),
+			child: Text(StringsConstants.MAIN_SCREEN_TITLE),
 		),
+    bottomNavigationBar: BottomBar(),
 	);
   }
 
