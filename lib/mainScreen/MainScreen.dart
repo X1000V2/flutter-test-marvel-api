@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test_marvel_api/common/icons/CustomIcons.dart';
 import 'package:flutter_test_marvel_api/common/resources/CustomColors.dart';
 import 'package:flutter_test_marvel_api/common/resources/StringsConstants.dart';
-import 'package:flutter_test_marvel_api/mainScreen/tabsViews/TabCharacters.dart';
+import 'package:flutter_test_marvel_api/mainScreen/tabsCharacters/ui/TabCharacters.dart';
 
 class MainScreen extends StatefulWidget {
   @override

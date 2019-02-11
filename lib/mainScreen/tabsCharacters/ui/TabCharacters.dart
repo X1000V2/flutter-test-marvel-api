@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test_marvel_api/common/resources/CustomColors.dart';
-import 'package:flutter_test_marvel_api/common/services/ServiceManager.dart';
 import 'package:flutter_test_marvel_api/common/services/model/CharacterModel.dart';
+import 'package:flutter_test_marvel_api/mainScreen/tabsCharacters/bloc/CharacterBloc.dart';
 
 class TabCharacters extends StatefulWidget {
   @override
@@ -11,10 +11,13 @@ class TabCharacters extends StatefulWidget {
 }
 
 class TabCharactersState extends State<TabCharacters> {
+
+  final bloc = CharacterBloc();
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: ServiceManager.getCharactersFromService(),
+        future: bloc.fetchAllCharacters(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.data == null) {
             return CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Color(CustomColors.COLOR_RED)));
