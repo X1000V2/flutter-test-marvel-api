@@ -1,8 +1,8 @@
-import 'package:flutter_test_marvel_api/common/services/model/ComicsModel.dart';
-import 'package:flutter_test_marvel_api/common/services/model/EventsModel.dart';
-import 'package:flutter_test_marvel_api/common/services/model/StoriesModel.dart';
-import 'package:flutter_test_marvel_api/common/services/model/ThumbnailModel.dart';
-import 'package:flutter_test_marvel_api/common/services/model/UrlModel.dart';
+import 'package:flutter_test_marvel_api/common/services/model/characterModels/ComicsModel.dart';
+import 'package:flutter_test_marvel_api/common/services/model/characterModels/EventsModel.dart';
+import 'package:flutter_test_marvel_api/common/services/model/characterModels/StoriesModel.dart';
+import 'package:flutter_test_marvel_api/common/services/model/characterModels/ThumbnailModel.dart';
+import 'package:flutter_test_marvel_api/common/services/model/characterModels/UrlModel.dart';
 
 class CharacterModel {
   int id;

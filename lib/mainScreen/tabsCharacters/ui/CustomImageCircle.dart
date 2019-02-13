@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_test_marvel_api/common/services/model/ThumbnailModel.dart';
+import 'package:flutter_test_marvel_api/common/services/model/characterModels/ThumbnailModel.dart';
 
-class CustomImageCircle extends StatelessWidget {
-  ThumbnailModel thumbnail;
+class CustomImageCircle extends StatefulWidget {
+  final ThumbnailModel thumbnail;
 
   CustomImageCircle(this.thumbnail);
 
   @override
+  CustomImageCircleState createState() {
+    return new CustomImageCircleState();
+  }
+}
+
+class CustomImageCircleState extends State<CustomImageCircle> {
+  @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Container(
         width: 50.0,
         height: 50.0,
@@ -17,6 +23,6 @@ class CustomImageCircle extends StatelessWidget {
             image: new DecorationImage(
                 fit: BoxFit.fill,
                 image: new NetworkImage(
-                    "${thumbnail.path}.${thumbnail.extension}"))));
+                    "${widget.thumbnail.path}.${widget.thumbnail.extension}"))));
   }
 }

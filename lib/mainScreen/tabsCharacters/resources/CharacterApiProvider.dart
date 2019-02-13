@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter_test_marvel_api/common/services/ServicesInfo.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_test_marvel_api/common/Environments.dart';
-import 'package:flutter_test_marvel_api/common/services/model/CharacterModel.dart';
+import 'package:flutter_test_marvel_api/common/services/model/characterModels/CharacterModel.dart';
 
 class CharaterApiProvider{
 

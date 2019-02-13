@@ -1,4 +1,4 @@
-import 'package:flutter_test_marvel_api/common/services/model/EventItemModel.dart';
+import 'package:flutter_test_marvel_api/common/services/model/characterModels/EventItemModel.dart';
 
 class EventsModel{
   int available;

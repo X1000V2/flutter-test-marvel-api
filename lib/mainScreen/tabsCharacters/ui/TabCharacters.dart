@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test_marvel_api/common/resources/CustomColors.dart';
-import 'package:flutter_test_marvel_api/common/services/model/CharacterModel.dart';
+import 'package:flutter_test_marvel_api/common/services/model/characterModels/CharacterModel.dart';
 import 'package:flutter_test_marvel_api/mainScreen/tabsCharacters/bloc/CharacterBloc.dart';
 import 'package:flutter_test_marvel_api/mainScreen/tabsCharacters/ui/CustomImageCircle.dart';
 

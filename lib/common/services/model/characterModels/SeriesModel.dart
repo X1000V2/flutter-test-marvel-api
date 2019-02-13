@@ -1,4 +1,4 @@
-import 'package:flutter_test_marvel_api/common/services/model/SeriesItemModel.dart';
+import 'package:flutter_test_marvel_api/common/services/model/characterModels/SeriesItemModel.dart';
 
 class SeriesModel{
   int available;
