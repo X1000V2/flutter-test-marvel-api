@@ -12,7 +12,7 @@ class CharaterApiProvider{
       ServicesInfo.PARAM_API_KEY: ServicesInfo.PARAM_API_KEY_VALUE,
       ServicesInfo.PARAM_HASH: ServicesInfo.PARAM_HASH_VALUE,
       ServicesInfo.PARAM_TS: ServicesInfo.PARAM_TS_VALUE,
-      ServicesInfo.PARAM_LIMIT: ServicesInfo.PARAM_LIMIT_VALUE
+      ServicesInfo.CHARACTERS_PARAM_LIMIT: ServicesInfo.CHARACTERS_PARAM_LIMIT_VALUE
     };
 
     final uriNew = new Uri.https(Environments.URL_BASE,

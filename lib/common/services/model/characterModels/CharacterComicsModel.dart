@@ -1,6 +1,6 @@
 import 'package:flutter_test_marvel_api/common/services/model/characterModels/ComicItemModel.dart';
 
-class ComicsModel{
+class CharacterComicsModel{
   int available;
   String collectionURI;
   List<ComicItemModel> items;
@@ -12,7 +12,7 @@ class ComicsModel{
   static const PARAM_ITEMS = "items";
   static const PARAM_RETURNED = "returned";
 
-  ComicsModel.fromJson(Map json){
+  CharacterComicsModel.fromJson(Map json){
     this.available = json[PARAM_AVAILABLE];
     this.collectionURI = json[PARAM_COLLECTION_URI];
     

@@ -37,10 +37,10 @@ class ComicModel{
   List<ComicPriceModel> prices;
   ComicThumbnailModel thumbnail;
   List<ComicImageModel> images;
-  List<ComicCreatorModel> creators;
-  List<ComicCharacterModel> characters;
-  List<ComicStorieModel> stories;
-  List<ComicEventModel> events;
+  ComicCreatorModel creators;
+  ComicCharacterModel characters;
+  ComicStorieModel stories;
+  ComicEventModel events;
 
   static const PARAM_ID = "id";
   static const PARAM_DIGITAL_ID = "digitalId";
@@ -68,7 +68,7 @@ class ComicModel{
   static const PARAM_CREATORS = "creators";
   static const PARAM_CHARACTERS = "characters";
   static const PARAM_STORIES = "stories";
-  static const PARAM_EVNETS ="events";
+  static const PARAM_EVENTS ="events";
 
 
   ComicModel.fromJson(Map json){
@@ -122,25 +122,14 @@ class ComicModel{
       this.images.add(ComicImageModel.fromJson(image));
     }
 
-    this.creators = List();
-    for(var creator in json[PARAM_CREATORS]){
-      this.creators.add(ComicCreatorModel.fromJson(creator));
-    }
+    this.creators = ComicCreatorModel.fromJson(json[PARAM_CREATORS]);
 
-    this.characters = List();
-    for(var character in json[PARAM_CHARACTERS]){
-      this.characters.add(ComicCharacterModel.fromJson(character));
-    }
+    this.characters = ComicCharacterModel.fromJson(json[PARAM_CHARACTERS]);
 
-    this.stories = List();
-    for(var story in json[PARAM_STORIES]){
-      this.stories.add(ComicStorieModel.fromJson(story));
-    }
+    this.stories = ComicStorieModel.fromJson(json[PARAM_STORIES]);
 
-    this.events = List();
-    for(var event in json[PARAM_EVNETS]){
-      this.events.add(ComicEventModel.fromJson(event));
-    }
+    this.events = ComicEventModel.fromJson(json[PARAM_EVENTS]);
+    
   }
   
 }

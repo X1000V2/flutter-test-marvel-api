@@ -1,4 +1,4 @@
-import 'package:flutter_test_marvel_api/common/services/model/characterModels/ComicsModel.dart';
+import 'package:flutter_test_marvel_api/common/services/model/characterModels/CharacterComicsModel.dart';
 import 'package:flutter_test_marvel_api/common/services/model/characterModels/EventsModel.dart';
 import 'package:flutter_test_marvel_api/common/services/model/characterModels/StoriesModel.dart';
 import 'package:flutter_test_marvel_api/common/services/model/characterModels/ThumbnailModel.dart';
@@ -11,7 +11,7 @@ class CharacterModel {
   String modified;
   ThumbnailModel thumbnail;
   String resourceURI;
-  ComicsModel comics;
+  CharacterComicsModel comics;
   StoriesModel stories;
   EventsModel events;
   List<UrlModel> urls;
@@ -33,7 +33,7 @@ class CharacterModel {
     this.description = json[PARAM_DESCRIPTION];
     this.thumbnail = ThumbnailModel.fromJson(json[PARAM_THUMBNAIL]);
     this.resourceURI = json[PARAM_RESOURCE_URI];
-    this.comics = ComicsModel.fromJson(json[PARAM_COMICS]);
+    this.comics = CharacterComicsModel.fromJson(json[PARAM_COMICS]);
     this.stories = StoriesModel.fromJson(json[PARAM_STORIES]);
     this.events = EventsModel.fromJson(json[PARAM_EVENTS]);
 
