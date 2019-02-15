@@ -1,5 +1,6 @@
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_test_marvel_api/common/AppRoutes.dart';
 import 'package:flutter_test_marvel_api/mainScreen/MainScreen.dart';
 
 void main() => runApp(MyApp());
@@ -12,12 +13,12 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        initialRoute: '/',
+        initialRoute: AppRoutes.ROUTE_BASE,
         routes: {
           // When we navigate to the "/" route, build the FirstScreen Widget
-          '/': (context) => MyHomePage(title: 'Flutter Demo Home Page'),
+          AppRoutes.ROUTE_BASE: (context) => MyHomePage(title: 'Flutter Demo Home Page'),
           // When we navigate to the "/second" route, build the SecondScreen Widget
-          '/MainScreen': (context) => MainScreen(),
+          AppRoutes.ROUTE_MAIN_SCREEN: (context) => MainScreen(),
         });
   }
 }
@@ -36,7 +37,7 @@ class MyHomePage extends StatefulWidget {
 
   void splash(BuildContext context) {
     //delay 6 seconds to go main screen
-    Future.delayed(Duration(milliseconds: 9000), () {
+    Future.delayed(Duration(milliseconds: 3000), () {
       //navigate to main screen
       Navigator.pushReplacement(
         context,
