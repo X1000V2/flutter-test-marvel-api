@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test_marvel_api/common/icons/CustomIcons.dart';
 import 'package:flutter_test_marvel_api/common/resources/CustomColors.dart';
 import 'package:flutter_test_marvel_api/common/resources/StringsConstants.dart';
+import 'package:flutter_test_marvel_api/mainScreen/tabsCharacters/ui/TabCharacters.dart';
+import 'package:flutter_test_marvel_api/mainScreen/tabsComics/ui/TabComics.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -15,8 +17,8 @@ class MainScreenState extends State<MainScreen> {
   int bottomNavigationBarIndex = 0;
 
   final List<Widget> listScreen = [
-    Text("Characters"),
-    Text("Comics"),
+    TabCharacters(),
+    TabComics(),
     Text("Creators"),
     Text("Events"),
     Text("Stories"),
