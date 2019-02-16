@@ -5,6 +5,7 @@ import 'package:flutter_test_marvel_api/common/services/model/ComicModel/ComicCh
 import 'package:flutter_test_marvel_api/common/services/model/ComicModel/ComicCharacterModel.dart';
 import 'package:flutter_test_marvel_api/common/services/model/characterModels/CharacterModel.dart';
 import 'package:flutter_test_marvel_api/common/services/model/characterModels/ThumbnailModel.dart';
+import 'package:flutter_test_marvel_api/common/widget/CustomText.dart';
 import 'package:flutter_test_marvel_api/mainScreen/tabsCharacters/ui/CustomImageCircle.dart';
 
 class DisplayCharactersGridview extends StatefulWidget{
@@ -30,7 +31,10 @@ class DisplayCharactersGridviewState extends State<DisplayCharactersGridview> {
     final double itemHeight = (size.height - kToolbarHeight - 24) / 2.9;
     final double itemWidth = size.width / 2;
 
-    return GridView.count(
+    return Column(
+      children: <Widget>[
+        CustomText(widget.characters.items.length > 0? "Characters included in this comic":"", 18.0, FontWeight.bold),
+        GridView.count(
               crossAxisCount: 5,
               controller: new ScrollController(keepScrollOffset: false),
               childAspectRatio: (itemWidth / itemHeight),
@@ -42,7 +46,10 @@ class DisplayCharactersGridviewState extends State<DisplayCharactersGridview> {
                   builder: (BuildContext context, AsyncSnapshot snapshot) {
                     if(snapshot.data !=null){
                       CharacterModel completeCharacter =snapshot.data as CharacterModel;
-                      return CustomImageCircle(completeCharacter.thumbnail);
+                      return Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: CustomImageCircle(completeCharacter.thumbnail),
+                      );
                       //TODO put name superhero
                     }else{
                       return  CircularProgressIndicator(
@@ -51,6 +58,8 @@ class DisplayCharactersGridviewState extends State<DisplayCharactersGridview> {
                   }
                 );
               }),
-            );
+            ),
+      ],
+      );
   }
 }

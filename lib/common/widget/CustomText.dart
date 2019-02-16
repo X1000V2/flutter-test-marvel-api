@@ -15,6 +15,7 @@ class CustomText extends StatelessWidget{
       padding: EdgeInsets.only(bottom: 5.0, top: 5.0),
       child: Text(
         text !=null ? text : "",//check if text is null
+        textAlign: TextAlign.start,
         style: TextStyle(
           fontSize: size,
           fontWeight: fontWeight,
