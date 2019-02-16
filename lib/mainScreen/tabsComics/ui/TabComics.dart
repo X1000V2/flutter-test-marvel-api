@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_test_marvel_api/comicDetail/ui/ComicDetail.dart';
-import 'package:flutter_test_marvel_api/common/AppRoutes.dart';
 import 'package:flutter_test_marvel_api/common/resources/CustomColors.dart';
 import 'package:flutter_test_marvel_api/common/services/model/ComicModel/ComicModel.dart';
 import 'package:flutter_test_marvel_api/mainScreen/tabsComics/bloc/ComicsBloc.dart';
@@ -21,8 +19,8 @@ class TabComicsState extends State<TabComics> {
 
   @override
   Widget build(BuildContext context) {
-    //transition duration
-    timeDilation = 5.0;
+    //transition duration for this screen
+    timeDilation = 1.0;
     /*24 is for notification bar on Android*/
     var size = MediaQuery.of(context).size;
     final double itemHeight = (size.height - kToolbarHeight - 24) / 2.9;
@@ -48,15 +46,7 @@ class TabComicsState extends State<TabComics> {
 
                 return Container(
                         margin: new EdgeInsets.all(1.0),
-                        child: GestureDetector(
-                            onTap: () {
-                              //click listener
-                              print(comic.title);
-                              Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) =>ComicDetail(comic)),
-                                );
-                            },
-                            child: ComicCustomItem(comic)));
+                        child:ComicCustomItem(comic));
               }),
             ),
           );

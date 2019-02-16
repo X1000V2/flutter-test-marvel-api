@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test_marvel_api/common/resources/CustomColors.dart';
 import 'package:flutter_test_marvel_api/common/services/model/ComicModel/ComicModel.dart';
+import 'package:flutter_test_marvel_api/common/widget/PhotoHero.dart';
+import 'package:flutter/scheduler.dart' show timeDilation;
 
 class ComicDetail extends StatefulWidget {
   final ComicModel comic;
@@ -14,8 +16,12 @@ class ComicDetail extends StatefulWidget {
 }
 
 class ComicDetailState extends State<ComicDetail> {
+
   @override
   Widget build(BuildContext context) {
+    //transition duration for this screen, causer slow zoom in selected comic :D
+    timeDilation = 3.0;
+
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Color(CustomColors.COLOR_RED),
@@ -25,14 +31,12 @@ class ComicDetailState extends State<ComicDetail> {
           child: Wrap(
             children: <Widget>[
               //image comic
-              Hero(
-                    tag: widget.comic.hashCode,
-                    child: Image.network(
-                "${widget.comic.thumbnail.path}.${widget.comic.thumbnail.extension}",
-                height: 400.0,
+              PhotoHero(
+                photo: "${widget.comic.thumbnail.path}.${widget.comic.thumbnail.extension}",
+                onTap: () => {},
                 width: double.infinity,
-                fit: BoxFit.cover,
-              )
+                height: 400.0,
+                tag: widget.comic.hashCode.toString(),
               ),
               Padding(
                 padding: EdgeInsets.only(left: 10.0, top: 10.0, right: 5.0, bottom: 5.0),

@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_test_marvel_api/comicDetail/ui/ComicDetail.dart';
 import 'package:flutter_test_marvel_api/common/services/model/ComicModel/ComicModel.dart';
+import 'package:flutter_test_marvel_api/common/widget/PhotoHero.dart';
 
 class ComicCustomItem extends StatefulWidget {
 
@@ -21,19 +23,11 @@ class ComicCustomItemState extends State<ComicCustomItem> {
           fit: StackFit.expand,
           
           children: <Widget>[
-            //Comic Image
-            Hero(
-              tag: widget.comic.id,
-              child: Container(
-              margin: EdgeInsets.only(left: 5.0, top: 40.0, right: 5.0, bottom: 5.0),
-              decoration: new BoxDecoration(
-                shape: BoxShape.rectangle,
-                image: new DecorationImage(
-                    fit: BoxFit.fitWidth,
-                    image: new NetworkImage(
-                        "${widget.comic.thumbnail.path}.${widget.comic.thumbnail.extension}")))),
+            PhotoHero(
+              photo: "${widget.comic.thumbnail.path}.${widget.comic.thumbnail.extension}",
+              onTap: () => navigateToComicDetail(widget.comic),
+              tag: widget.comic.hashCode.toString(),
             ),
-            
             //price at the top of the image
             Container(
               alignment: AlignmentDirectional.bottomEnd,
@@ -83,5 +77,13 @@ class ComicCustomItemState extends State<ComicCustomItem> {
     }
 
     return title;
+  }
+
+  navigateToComicDetail(ComicModel comic){
+    print(comic.title);
+    print("hashCode comic: ${widget.comic.hashCode.toString()}");
+    Navigator.push(context,
+      MaterialPageRoute(builder: (context) =>ComicDetail(comic)),
+    );
   }
 }
