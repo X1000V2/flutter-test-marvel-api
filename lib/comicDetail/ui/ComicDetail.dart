@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_test_marvel_api/comicDetail/ui/DisplayCharactersGridview.dart';
 import 'package:flutter_test_marvel_api/common/resources/CustomColors.dart';
 import 'package:flutter_test_marvel_api/common/services/model/ComicModel/ComicModel.dart';
+import 'package:flutter_test_marvel_api/common/widget/CustomText.dart';
 import 'package:flutter_test_marvel_api/common/widget/PhotoHero.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 
@@ -16,7 +18,6 @@ class ComicDetail extends StatefulWidget {
 }
 
 class ComicDetailState extends State<ComicDetail> {
-
   @override
   Widget build(BuildContext context) {
     //transition duration for this screen, causer slow zoom in selected comic :D
@@ -32,17 +33,24 @@ class ComicDetailState extends State<ComicDetail> {
             children: <Widget>[
               //image comic
               PhotoHero(
-                photo: "${widget.comic.thumbnail.path}.${widget.comic.thumbnail.extension}",
+                photo:
+                    "${widget.comic.thumbnail.path}.${widget.comic.thumbnail.extension}",
                 onTap: () => {},
                 width: double.infinity,
                 height: 400.0,
                 tag: widget.comic.hashCode.toString(),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 10.0, top: 10.0, right: 5.0, bottom: 5.0),
-                              child: Text(
-                  "${widget.comic.title}",
-                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold,),
+                padding: EdgeInsets.only(
+                left: 10.0, top: 10.0, right: 5.0, bottom: 5.0),
+                child: Column(
+
+                  //All details
+                  children: <Widget>[
+                    CustomText(widget.comic.title, 20.0, FontWeight.bold),
+                    CustomText(widget.comic.description, 16.0, FontWeight.normal),
+                    DisplayCharactersGridview(widget.comic.characters),
+                  ],
                 ),
               )
             ],

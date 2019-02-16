@@ -23,10 +23,13 @@ class ComicCustomItemState extends State<ComicCustomItem> {
           fit: StackFit.expand,
           
           children: <Widget>[
-            PhotoHero(
-              photo: "${widget.comic.thumbnail.path}.${widget.comic.thumbnail.extension}",
-              onTap: () => navigateToComicDetail(widget.comic),
-              tag: widget.comic.hashCode.toString(),
+            Padding(
+              padding: const EdgeInsets.all(3.0),
+              child: PhotoHero(
+                photo: "${widget.comic.thumbnail.path}.${widget.comic.thumbnail.extension}",
+                onTap: () => navigateToComicDetail(widget.comic),
+                tag: widget.comic.hashCode.toString(),
+              ),
             ),
             //price at the top of the image
             Container(
@@ -39,20 +42,20 @@ class ComicCustomItemState extends State<ComicCustomItem> {
             ),
             //Text title comic
             Wrap(children: <Widget>[
-                 Container(
-                   height: 40.0,
-                color: Colors.red[900],
+              Container(
+                height: 40.0,
+                color: Colors.white,
                 alignment: AlignmentDirectional.topStart,
                 margin: EdgeInsets.only(left: 5.0, top: 5.0, right: 5.0, bottom: 5.0),
                 child: Text(
                   getTitle(widget.comic.title),
                   style: TextStyle(color: Colors.black,fontSize: 14.0),
-                  ),
+                ),
               ),
-            ],)
-              
-          ],
-        );
+            ],
+          )    
+        ],
+      );
   }
 
   String getPrice(ComicModel comic){

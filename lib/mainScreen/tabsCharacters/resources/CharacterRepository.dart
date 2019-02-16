@@ -5,4 +5,6 @@ class CharacterRepository{
   final characterApiProvider = CharaterApiProvider();
 
   Future<List<CharacterModel>> fetchAllCharacters() => characterApiProvider.getCharactersFromService();
+
+  Future<CharacterModel> fetchCharacter(String url) => characterApiProvider.getCharacterFromService(url);
 }

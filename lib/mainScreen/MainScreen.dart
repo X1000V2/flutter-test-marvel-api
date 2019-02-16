@@ -14,7 +14,7 @@ class MainScreen extends StatefulWidget {
 
 class MainScreenState extends State<MainScreen> {
 
-  int bottomNavigationBarIndex = 1;
+  int bottomNavigationBarIndex = 0;
 
   final List<Widget> listScreen = [
     TabCharacters(),
