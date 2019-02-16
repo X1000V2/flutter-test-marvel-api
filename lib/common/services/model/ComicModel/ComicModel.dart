@@ -13,6 +13,8 @@ import 'package:flutter_test_marvel_api/common/services/model/ComicModel/ComicVa
 
 class ComicModel{
 
+  ComicModel();
+
   int id;
   int digitalId;
   String title;

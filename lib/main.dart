@@ -1,6 +1,8 @@
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_test_marvel_api/comicDetail/ui/ComicDetail.dart';
 import 'package:flutter_test_marvel_api/common/AppRoutes.dart';
+import 'package:flutter_test_marvel_api/common/services/model/ComicModel/ComicModel.dart';
 import 'package:flutter_test_marvel_api/mainScreen/MainScreen.dart';
 
 void main() => runApp(MyApp());
@@ -19,6 +21,7 @@ class MyApp extends StatelessWidget {
           AppRoutes.ROUTE_BASE: (context) => MyHomePage(title: 'Flutter Demo Home Page'),
           // When we navigate to the "/second" route, build the SecondScreen Widget
           AppRoutes.ROUTE_MAIN_SCREEN: (context) => MainScreen(),
+          AppRoutes.ROUTE_COMIC_DETAIL_SCREEN: (context) => ComicDetail(ComicModel()),
         });
   }
 }
