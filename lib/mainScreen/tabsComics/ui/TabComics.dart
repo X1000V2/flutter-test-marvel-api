@@ -7,6 +7,8 @@ import 'package:flutter_test_marvel_api/common/services/model/ComicModel/ComicMo
 import 'package:flutter_test_marvel_api/mainScreen/tabsComics/bloc/ComicsBloc.dart';
 import 'package:flutter_test_marvel_api/mainScreen/tabsComics/ui/ComicCustomItemState.dart';
 
+import 'package:flutter/scheduler.dart' show timeDilation;
+
 class TabComics extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -19,7 +21,8 @@ class TabComicsState extends State<TabComics> {
 
   @override
   Widget build(BuildContext context) {
-
+    //transition duration
+    timeDilation = 5.0;
     /*24 is for notification bar on Android*/
     var size = MediaQuery.of(context).size;
     final double itemHeight = (size.height - kToolbarHeight - 24) / 2.9;
@@ -41,18 +44,19 @@ class TabComicsState extends State<TabComics> {
               shrinkWrap: true,
               scrollDirection: Axis.vertical,
               children: List.generate((snapshot.data as List).length, (index) {
-                return new Container(
-                  margin: new EdgeInsets.all(1.0),
-                  child: GestureDetector(
-                  onTap: () {
-                    //click listener
-                    print((snapshot.data[index] as ComicModel).title);
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => ComicDetail((snapshot.data[index] as ComicModel))));
-                  },
-                  child:ComicCustomItem(snapshot.data[index] as ComicModel)
-                  )
-                );
+                ComicModel comic = snapshot.data[index] as ComicModel;
+
+                return Container(
+                        margin: new EdgeInsets.all(1.0),
+                        child: GestureDetector(
+                            onTap: () {
+                              //click listener
+                              print(comic.title);
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) =>ComicDetail(comic)),
+                                );
+                            },
+                            child: ComicCustomItem(comic)));
               }),
             ),
           );

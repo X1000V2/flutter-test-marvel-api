@@ -25,11 +25,14 @@ class ComicDetailState extends State<ComicDetail> {
           child: Wrap(
             children: <Widget>[
               //image comic
-              Image.network(
+              Hero(
+                    tag: widget.comic.hashCode,
+                    child: Image.network(
                 "${widget.comic.thumbnail.path}.${widget.comic.thumbnail.extension}",
                 height: 400.0,
                 width: double.infinity,
                 fit: BoxFit.cover,
+              )
               ),
               Padding(
                 padding: EdgeInsets.only(left: 10.0, top: 10.0, right: 5.0, bottom: 5.0),

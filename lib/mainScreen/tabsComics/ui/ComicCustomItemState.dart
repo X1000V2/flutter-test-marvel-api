@@ -22,14 +22,18 @@ class ComicCustomItemState extends State<ComicCustomItem> {
           
           children: <Widget>[
             //Comic Image
-            Container(
-            margin: EdgeInsets.only(left: 5.0, top: 40.0, right: 5.0, bottom: 5.0),
-            decoration: new BoxDecoration(
+            Hero(
+              tag: widget.comic.id,
+              child: Container(
+              margin: EdgeInsets.only(left: 5.0, top: 40.0, right: 5.0, bottom: 5.0),
+              decoration: new BoxDecoration(
                 shape: BoxShape.rectangle,
                 image: new DecorationImage(
                     fit: BoxFit.fitWidth,
                     image: new NetworkImage(
                         "${widget.comic.thumbnail.path}.${widget.comic.thumbnail.extension}")))),
+            ),
+            
             //price at the top of the image
             Container(
               alignment: AlignmentDirectional.bottomEnd,
