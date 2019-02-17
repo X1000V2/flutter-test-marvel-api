@@ -8,6 +8,14 @@ class ServicesInfo{
   static const PARAM_HASH_VALUE = 'dfddc471e4398fe423e4ecbf2f4bb137';
   static const PARAM_TS = 'ts';
   static const PARAM_TS_VALUE = '1';
-  static const PARAM_LIMIT = 'limit';
-  static const PARAM_LIMIT_VALUE = '80';
+  
+  //service characters
+  static const SERVICE_CHARACTERS = "v1/public/characters";
+  static const CHARACTERS_PARAM_LIMIT = 'limit';
+  static const CHARACTERS_PARAM_LIMIT_VALUE = '80';
+
+  //service comics
+  static const SERVICE_COMICS = 'v1/public/comics';
+  static const COMICS_PARAM_LIMIT = 'limit';
+  static const COMICS_PARAM_LIMIT_VALUE = '40';
 }
