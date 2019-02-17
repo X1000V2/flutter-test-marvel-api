@@ -1,9 +1,9 @@
-import 'package:flutter_test_marvel_api/common/services/model/StoriesItemModel.dart';
+import 'package:flutter_test_marvel_api/common/services/model/ComicModel/ComicCharacterItemModel.dart';
 
-class StoriesModel{
+class ComicCharacterModel{
   int available;
   String collectionURI;
-  List<StoriesItemModel> items;
+  List<ComicCharacterItemModel> items;
   int returned;
 
   static const PARAM_AVAILABLE = "available";
@@ -11,13 +11,13 @@ class StoriesModel{
   static const PARAM_ITEMS = "items";
   static const PARAM_RETURNED = "returned";
 
-  StoriesModel.fromJson(Map json){
+  ComicCharacterModel.fromJson(Map json){
     this.available = json[PARAM_AVAILABLE];
     this.collectionURI = json[PARAM_COLLECTION_URI];
-
+    
     this.items = List();
-    for(var storyItem in json[PARAM_ITEMS]){
-      this.items.add(StoriesItemModel.fromJson(storyItem));
+    for(var item in json[PARAM_ITEMS]){
+      this.items.add(ComicCharacterItemModel.fromJson(item));
     }
 
     this.returned = json[PARAM_RETURNED];
