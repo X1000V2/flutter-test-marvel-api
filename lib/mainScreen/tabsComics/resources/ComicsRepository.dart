@@ -5,4 +5,6 @@ class ComicsRepository{
   final characterApiProvider = ComicsApiProvider();
 
   Future<List<ComicModel>> fetchAllComics() => characterApiProvider.getComicsFromService();
+
+  Future<ComicModel> fetchComic(String url) => characterApiProvider.getComicFromService(url);
 }

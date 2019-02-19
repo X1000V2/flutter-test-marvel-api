@@ -28,7 +28,7 @@ class MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(CustomColors.COLOR_RED),
+        backgroundColor: CustomColors.COLOR_RED,
         title: Text(StringsConstants.MAIN_SCREEN_TITLE),
       ),
       body: Center(
@@ -36,7 +36,7 @@ class MainScreenState extends State<MainScreen> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        fixedColor: Color(CustomColors.COLOR_RED),
+        fixedColor: CustomColors.COLOR_RED,
         currentIndex: bottomNavigationBarIndex, // this will be set when a new tab is tapped
         onTap: (int index){
           setState(() {

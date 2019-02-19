@@ -1,6 +1,7 @@
 class StringsConstants{
 
   static const String MAIN_SCREEN_TITLE = "Main Screen";
+  static const String CHARACTER_DETAIL_SCREEN_TITLE = "Character Detail";
 
   //Main Screen
   static const String MAIN_SCREEN_CHARACTERS = "Characters";
