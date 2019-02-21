@@ -32,7 +32,7 @@ class TabComicsState extends State<TabComics> {
         if (snapshot.data == null) {
           return CircularProgressIndicator(
               valueColor:
-                  AlwaysStoppedAnimation<Color>(Color(CustomColors.COLOR_RED)));
+                  AlwaysStoppedAnimation<Color>(CustomColors.COLOR_RED));
         } else {
           return Scrollbar(
             child: GridView.count(

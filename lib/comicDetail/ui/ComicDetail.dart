@@ -25,7 +25,7 @@ class ComicDetailState extends State<ComicDetail> {
 
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Color(CustomColors.COLOR_RED),
+          backgroundColor: CustomColors.COLOR_RED,
           title: Text("Comic detail"),
         ),
         body: SingleChildScrollView(
@@ -47,8 +47,8 @@ class ComicDetailState extends State<ComicDetail> {
 
                   //All details
                   children: <Widget>[
-                    CustomText(widget.comic.title, 20.0, FontWeight.bold),
-                    CustomText(widget.comic.description, 16.0, FontWeight.normal),
+                    CustomText(widget.comic.title, 20.0, FontWeight.bold, CustomColors.COLOR_BLACK),
+                    CustomText(widget.comic.description, 16.0, FontWeight.normal,CustomColors.COLOR_BLACK),
                     DisplayCharactersGridview(widget.comic.characters),
                   ],
                 ),

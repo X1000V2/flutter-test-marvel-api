@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test_marvel_api/comicDetail/bloc/ComicDetailBloc.dart';
 import 'package:flutter_test_marvel_api/common/resources/CustomColors.dart';
-import 'package:flutter_test_marvel_api/common/services/model/ComicModel/ComicCharacterItemModel.dart';
 import 'package:flutter_test_marvel_api/common/services/model/ComicModel/ComicCharacterModel.dart';
 import 'package:flutter_test_marvel_api/common/services/model/characterModels/CharacterModel.dart';
-import 'package:flutter_test_marvel_api/common/services/model/characterModels/ThumbnailModel.dart';
 import 'package:flutter_test_marvel_api/common/widget/CustomText.dart';
 import 'package:flutter_test_marvel_api/mainScreen/tabsCharacters/ui/CustomImageCircle.dart';
 
@@ -33,7 +31,7 @@ class DisplayCharactersGridviewState extends State<DisplayCharactersGridview> {
 
     return Column(
       children: <Widget>[
-        CustomText(widget.characters.items.length > 0? "Characters included in this comic":"", 18.0, FontWeight.bold),
+        CustomText(widget.characters.items.length > 0? "Characters included in this comic":"", 18.0, FontWeight.bold,CustomColors.COLOR_BLACK),
         GridView.count(
               crossAxisCount: 5,
               controller: new ScrollController(keepScrollOffset: false),
@@ -48,12 +46,12 @@ class DisplayCharactersGridviewState extends State<DisplayCharactersGridview> {
                       CharacterModel completeCharacter =snapshot.data as CharacterModel;
                       return Padding(
                         padding: const EdgeInsets.all(2.0),
-                        child: CustomImageCircle(completeCharacter.thumbnail),
+                        child: CustomImageCircle(completeCharacter),
                       );
                       //TODO put name superhero
                     }else{
                       return  CircularProgressIndicator(
-                        valueColor: AlwaysStoppedAnimation<Color>(Color(CustomColors.COLOR_RED)));
+                        valueColor: AlwaysStoppedAnimation<Color>(CustomColors.COLOR_RED));
                     }
                   }
                 );
