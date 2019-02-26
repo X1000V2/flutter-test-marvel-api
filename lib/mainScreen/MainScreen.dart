@@ -23,9 +23,10 @@ class MainScreenState extends State<MainScreen> {
   final List<Widget> listScreen = [
     TabCharacters(),
     TabComics(),
-    Text("Creators"),
-    Text("Events"),
-    Text("Stories"),
+    //TODO future tabs with content
+    // Text("Creators"),
+    // Text("Events"),
+    // Text("Stories"),
   ];
 
   Future<AadOAuth> loginOwn(AadOAuth oauth) async{
@@ -93,7 +94,8 @@ class MainScreenState extends State<MainScreen> {
                 Image.asset(CustomIcons.ICON_COMIC, width: 40.0, height: 40.0),
             title: new Text(StringsConstants.MAIN_SCREEN_COMICS),
           ),
-          BottomNavigationBarItem(
+          //TODO create more tabs with content
+          /* BottomNavigationBarItem(
             icon: Image.asset(CustomIcons.ICON_CREATOR,
                 width: 40.0, height: 40.0),
             title: new Text(StringsConstants.MAIN_SCREEN_CREATORS),
@@ -107,7 +109,7 @@ class MainScreenState extends State<MainScreen> {
             icon:
                 Image.asset(CustomIcons.ICON_STORY, width: 40.0, height: 40.0),
             title: new Text(StringsConstants.MAIN_SCREEN_STORIES),
-          ),
+          ), */
         ],
       ),
     );
