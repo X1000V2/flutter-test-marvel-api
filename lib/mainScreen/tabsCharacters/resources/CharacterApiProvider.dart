@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'package:flutter_test_marvel_api/common/services/ServicesInfo.dart';
 import 'package:http/http.dart' as http;

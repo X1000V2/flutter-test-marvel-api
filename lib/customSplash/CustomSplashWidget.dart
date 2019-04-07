@@ -22,16 +22,17 @@ class CustomSplashState extends State<CustomSplashWidget> with SingleTickerProvi
   double _factionTime = 0.0;
   Animation<double> animation;
   int numberOfClickToJumpToNextScreen = 0;
+  AnimationController _animationController;
 
   @override
   void initState() {
     
     super.initState();
 
-    var animationController = AnimationController(
+    _animationController = AnimationController(
         duration: Duration(milliseconds: 5000), vsync: this);
 
-    animation = Tween(begin: 0.0, end: 1.0).animate(animationController);
+    animation = Tween(begin: 0.0, end: 1.0).animate(_animationController);
     animation.addListener(() {
         setState(() {
           _factionTime = animation.value;
@@ -41,16 +42,22 @@ class CustomSplashState extends State<CustomSplashWidget> with SingleTickerProvi
     animation.addStatusListener((status){
       switch (status) {
         case AnimationStatus.completed:
-          animationController.reverse();
+          _animationController.reverse();
           break;
         case AnimationStatus.dismissed:
-          animationController.forward();
+          _animationController.forward();
           break;
         default:
       }
     });
-    animationController.forward();
+    _animationController.forward();
     
+  }
+
+  @override
+  void dispose() {
+    _animationController.stop();
+    super.dispose();
   }
 
   @override

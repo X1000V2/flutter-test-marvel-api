@@ -2,6 +2,7 @@ import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test_marvel_api/comicDetail/ui/ComicDetail.dart';
 import 'package:flutter_test_marvel_api/common/AppRoutes.dart';
+import 'package:flutter_test_marvel_api/common/icons/CustomIcons.dart';
 import 'package:flutter_test_marvel_api/common/services/model/ComicModel/ComicModel.dart';
 import 'package:flutter_test_marvel_api/customSplash/CustomSplashWidget.dart';
 import 'package:flutter_test_marvel_api/mainScreen/MainScreen.dart';
@@ -47,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
       children: <Widget>[
         Container(),
         CustomSplashWidget(
-          imageSrc: "assets/ironman.png",
+          imageSrc: CustomIcons.ICON_IRONMAN,
           tapsToTrigger: 5,
           onTapCustom: () {
             Navigator.pushReplacement(
