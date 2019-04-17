@@ -8,25 +8,14 @@ import 'package:flutter_test_marvel_api/common/widget/PhotoHero.dart';
 
 import 'package:flutter/scheduler.dart' show timeDilation;
 
-class CharacterDetail extends StatefulWidget{
+class CharacterDetail extends StatelessWidget{
 
   final CharacterModel character;
 
   CharacterDetail(this.character);
 
   @override
-  State<StatefulWidget> createState() {
-    
-    return CharacterDetailState();
-  }
-
-}
-
-class CharacterDetailState extends State<CharacterDetail>{
-
-  @override
   Widget build(BuildContext context) {
-
     timeDilation = 3.0;
     
     return Scaffold(
@@ -47,10 +36,10 @@ class CharacterDetailState extends State<CharacterDetail>{
                 //Character description
                 Padding(
                   padding: EdgeInsets.only(top: 100.0, left: 5.0, right: 5.0),
-                  child: CustomText(widget.character.description, 16.0, FontWeight.normal, CustomColors.COLOR_BLACK),
+                  child: CustomText(character.description, 16.0, FontWeight.normal, CustomColors.COLOR_BLACK),
                 ),
                 //Comics available for this character
-                GridViewCharacterComics(widget.character.comics),
+                GridViewCharacterComics(character.comics),
               ],
             ),
             //Image Character
@@ -60,9 +49,9 @@ class CharacterDetailState extends State<CharacterDetail>{
               height: 150.0,
               width: 150.0,
               child: PhotoHero(
-                  photo: "${widget.character.thumbnail.path}.${widget.character.thumbnail.extension}",
+                  photo: "${character.thumbnail.path}.${character.thumbnail.extension}",
                   onTap: () => {},
-                  tag: widget.character.hashCode.toString(),
+                  tag: character.hashCode.toString(),
                 ),
             ),
             //Name Character
@@ -70,14 +59,14 @@ class CharacterDetailState extends State<CharacterDetail>{
               left: 200.0,
               top: 30.0,
               right: 10.0,
-              child: CustomText(widget.character.name,22.0,FontWeight.bold, CustomColors.COLOR_WHITE),
+              child: CustomText(character.name,22.0,FontWeight.bold, CustomColors.COLOR_WHITE),
             ),
             //Total comics number
             Positioned(
               right: 10.0,
               left: 200.0,
               top: 120.0,
-              child: CustomText("Total comics ${widget.character.comics.items.length}",18.0,FontWeight.bold, CustomColors.COLOR_BLACK),
+              child: CustomText("Total comics ${character.comics.items.length}",18.0,FontWeight.bold, CustomColors.COLOR_BLACK),
             )
           ],
         ),

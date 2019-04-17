@@ -4,19 +4,12 @@ import 'package:flutter_test_marvel_api/comicDetail/ui/ComicDetail.dart';
 import 'package:flutter_test_marvel_api/common/services/model/ComicModel/ComicModel.dart';
 import 'package:flutter_test_marvel_api/common/widget/PhotoHero.dart';
 
-class ComicCustomItem extends StatefulWidget {
+class ComicCustomItem extends StatelessWidget {
 
   final ComicModel comic;
 
   ComicCustomItem(this.comic);
 
-  @override
-  ComicCustomItemState createState() {
-    return new ComicCustomItemState();
-  }
-}
-
-class ComicCustomItemState extends State<ComicCustomItem> {
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -26,9 +19,9 @@ class ComicCustomItemState extends State<ComicCustomItem> {
             Padding(
               padding: const EdgeInsets.all(3.0),
               child: PhotoHero(
-                photo: "${widget.comic.thumbnail.path}.${widget.comic.thumbnail.extension}",
-                onTap: () => navigateToComicDetail(widget.comic),
-                tag: widget.comic.hashCode.toString(),
+                photo: "${comic.thumbnail.path}.${comic.thumbnail.extension}",
+                onTap: () => navigateToComicDetail(comic, context),
+                tag: comic.hashCode.toString(),
               ),
             ),
             //price at the top of the image
@@ -36,7 +29,7 @@ class ComicCustomItemState extends State<ComicCustomItem> {
               alignment: AlignmentDirectional.bottomEnd,
               margin: EdgeInsets.only(left: 5.0, top: 5.0, right: 10, bottom: 10.0),
               child: Text(
-                getPrice(widget.comic),
+                getPrice(comic),
                 style: TextStyle(color: Colors.white,fontSize: 18.0),
                 ),
             ),
@@ -48,7 +41,7 @@ class ComicCustomItemState extends State<ComicCustomItem> {
                 alignment: AlignmentDirectional.topStart,
                 margin: EdgeInsets.only(left: 5.0, top: 5.0, right: 5.0, bottom: 5.0),
                 child: Text(
-                  getTitle(widget.comic.title),
+                  getTitle(comic.title),
                   style: TextStyle(color: Colors.black,fontSize: 14.0),
                 ),
               ),
@@ -82,9 +75,9 @@ class ComicCustomItemState extends State<ComicCustomItem> {
     return title;
   }
 
-  navigateToComicDetail(ComicModel comic){
+  navigateToComicDetail(ComicModel comic, BuildContext context){
     print(comic.title);
-    print("hashCode comic: ${widget.comic.hashCode.toString()}");
+    print("hashCode comic: ${comic.hashCode.toString()}");
     Navigator.push(context,
       MaterialPageRoute(builder: (context) =>ComicDetail(comic)),
     );

@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_test_marvel_api/common/resources/CustomColors.dart';
 import 'package:flutter_test_marvel_api/common/services/model/ComicModel/ComicModel.dart';
 import 'package:flutter_test_marvel_api/mainScreen/tabsComics/bloc/ComicsBloc.dart';
-import 'package:flutter_test_marvel_api/mainScreen/tabsComics/ui/ComicCustomItemState.dart';
+import 'package:flutter_test_marvel_api/mainScreen/tabsComics/ui/ComicCustomItem.dart';
 
 import 'package:flutter/scheduler.dart' show timeDilation;
 
@@ -55,5 +55,3 @@ class TabComicsState extends State<TabComics> {
     );
   }
 }
-
-//child: Image.network("http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg")

@@ -6,18 +6,11 @@ import 'package:flutter_test_marvel_api/common/widget/CustomText.dart';
 import 'package:flutter_test_marvel_api/common/widget/PhotoHero.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 
-class ComicDetail extends StatefulWidget {
+class ComicDetail extends StatelessWidget {
   final ComicModel comic;
 
   ComicDetail(this.comic);
 
-  @override
-  State<StatefulWidget> createState() {
-    return ComicDetailState();
-  }
-}
-
-class ComicDetailState extends State<ComicDetail> {
   @override
   Widget build(BuildContext context) {
     //transition duration for this screen, causer slow zoom in selected comic :D
@@ -34,11 +27,11 @@ class ComicDetailState extends State<ComicDetail> {
               //image comic
               PhotoHero(
                 photo:
-                    "${widget.comic.thumbnail.path}.${widget.comic.thumbnail.extension}",
+                    "${comic.thumbnail.path}.${comic.thumbnail.extension}",
                 onTap: () => {},
                 width: double.infinity,
                 height: 400.0,
-                tag: widget.comic.hashCode.toString(),
+                tag: comic.hashCode.toString(),
               ),
               Padding(
                 padding: EdgeInsets.only(
@@ -47,9 +40,9 @@ class ComicDetailState extends State<ComicDetail> {
 
                   //All details
                   children: <Widget>[
-                    CustomText(widget.comic.title, 20.0, FontWeight.bold, CustomColors.COLOR_BLACK),
-                    CustomText(widget.comic.description, 16.0, FontWeight.normal,CustomColors.COLOR_BLACK),
-                    DisplayCharactersGridview(widget.comic.characters),
+                    CustomText(comic.title, 20.0, FontWeight.bold, CustomColors.COLOR_BLACK),
+                    CustomText(comic.description, 16.0, FontWeight.normal,CustomColors.COLOR_BLACK),
+                    DisplayCharactersGridview(comic.characters),
                   ],
                 ),
               )
