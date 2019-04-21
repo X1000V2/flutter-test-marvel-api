@@ -8,11 +8,4 @@ class CharacterBloc{
     List<CharacterModel> list = await repository.fetchAllCharacters();
     return list;
   }
-
-  String getDescription(String description){
-    String descriptionFormatted = "";
-    descriptionFormatted = description.length > 30 ? description.substring(0,30) : "";
-    descriptionFormatted = descriptionFormatted.length > 0 ? (descriptionFormatted + "..."):"No description.";
-    return descriptionFormatted;
-  }
 }

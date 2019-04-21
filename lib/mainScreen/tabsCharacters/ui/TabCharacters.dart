@@ -3,6 +3,7 @@ import 'package:flutter_test_marvel_api/characterDetail/ui/CharacterDetail.dart'
 import 'package:flutter_test_marvel_api/common/resources/CustomColors.dart';
 import 'package:flutter_test_marvel_api/common/services/model/characterModels/CharacterModel.dart';
 import 'package:flutter_test_marvel_api/mainScreen/tabsCharacters/bloc/CharacterBloc.dart';
+import 'package:flutter_test_marvel_api/mainScreen/tabsCharacters/ui/CharacterRow.dart';
 import 'package:flutter_test_marvel_api/mainScreen/tabsCharacters/ui/CustomImageCircle.dart';
 
 import 'package:flutter/scheduler.dart' show timeDilation;
@@ -34,16 +35,7 @@ class TabCharactersState extends State<TabCharacters> {
             child: ListView.builder(
               itemCount: snapshot.data.length,
               itemBuilder: (BuildContext context, int index) {
-                return ListTile(
-                  onTap: (){
-                    //Go to chatacter detail with the character
-                    print("HashCode TabCharacters.dart: ${(snapshot.data[index] as CharacterModel).hashCode.toString()}");
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => CharacterDetail((snapshot.data[index] as CharacterModel))));
-                  },
-                  leading: CustomImageCircle((snapshot.data[index] as CharacterModel)),
-                  title: Text((snapshot.data[index] as CharacterModel).name),
-                  subtitle: Text(bloc.getDescription((snapshot.data[index] as CharacterModel).description)),
-                );
+                return CharacterRow(snapshot.data[index] as CharacterModel);
               },
             ),
           );
