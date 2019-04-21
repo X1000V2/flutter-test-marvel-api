@@ -9,7 +9,7 @@ class CustomImageCircle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+    
     return Container(
       width: 50.0,
       height: 50.0,
