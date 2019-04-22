@@ -36,7 +36,7 @@ class CharacterDetail extends StatelessWidget{
                 //Character description
                 Padding(
                   padding: EdgeInsets.only(top: 100.0, left: 5.0, right: 5.0),
-                  child: CustomText(character.description, 16.0, FontWeight.normal, CustomColors.COLOR_BLACK),
+                  child: CustomText(text: character.description, size: 16.0, fontWeight: FontWeight.normal, color: CustomColors.COLOR_BLACK),
                 ),
                 //Comics available for this character
                 GridViewCharacterComics(character.comics),
@@ -59,14 +59,14 @@ class CharacterDetail extends StatelessWidget{
               left: 200.0,
               top: 30.0,
               right: 10.0,
-              child: CustomText(character.name,22.0,FontWeight.bold, CustomColors.COLOR_WHITE),
+              child: CustomText(text: character.name, size: 22.0, fontWeight: FontWeight.bold, color: CustomColors.COLOR_WHITE),
             ),
             //Total comics number
             Positioned(
               right: 10.0,
               left: 200.0,
               top: 120.0,
-              child: CustomText("Total comics ${character.comics.items.length}",18.0,FontWeight.bold, CustomColors.COLOR_BLACK),
+              child: CustomText(text: "Total comics ${character.comics.items.length}", size: 18.0, fontWeight: FontWeight.bold, color: CustomColors.COLOR_BLACK),
             )
           ],
         ),
