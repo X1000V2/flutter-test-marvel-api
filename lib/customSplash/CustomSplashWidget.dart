@@ -98,7 +98,7 @@ class CustomSplashState extends State<CustomSplashWidget>
               left: 0.0,
               right: 0.0,
               bottom: 50.0,
-              child: Center(child: Text("Tap Iron Man´s headfive times to enter...")),
+              child: Center(child: Text("Tap Iron Man´s head five times to enter...")),
             ),
           ],
         ),
