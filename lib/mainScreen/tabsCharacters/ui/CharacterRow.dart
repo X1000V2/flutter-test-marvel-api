@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test_marvel_api/characterDetail/ui/CharacterDetail.dart';
+import 'package:flutter_test_marvel_api/common/icons/CustomIcons.dart';
 import 'package:flutter_test_marvel_api/common/resources/CustomColors.dart';
 import 'package:flutter_test_marvel_api/common/services/model/characterModels/CharacterModel.dart';
 import 'package:flutter_test_marvel_api/common/widget/CustomText.dart';
@@ -29,8 +30,8 @@ class CharacterRow extends StatelessWidget {
               ),
               Positioned(
                 left: 10.0,
-                top: 15.0,
-                bottom: 15.0,
+                top: 10.0,
+                bottom: 10.0,
                 child: CircleImage(
                     "${character.thumbnail.path}.${character.thumbnail.extension}",
                     character.hashCode.toString()),
@@ -44,16 +45,6 @@ class CharacterRow extends StatelessWidget {
     //     title: Text(character.name),
     //     subtitle: Text(getDescription(character.description)),
     //   ),
-  }
-
-  String getDescription(String description) {
-    String descriptionFormatted = "";
-    descriptionFormatted =
-        description.length > 30 ? description.substring(0, 30) : "";
-    descriptionFormatted = descriptionFormatted.length > 0
-        ? (descriptionFormatted + "...")
-        : "No description.";
-    return descriptionFormatted;
   }
 
   void goToCharacterDetailScreen(BuildContext context) {
@@ -74,8 +65,8 @@ class CircleImage extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(45.0),
       child: Container(
-        width: 70.0,
-        height: 70.0,
+        width: 80.0,
+        height: 50.0,
         child: PhotoHero(
           photo: pathImage,
           tag: heroTag,
@@ -95,20 +86,69 @@ class CharacterData extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(5.0),
       child: Container(
-        padding: EdgeInsets.only(left: 60.0,top: 10.0),
-        height: 50.0,
+        padding: EdgeInsets.only(left: 70.0, top: 10.0),
+        height: 110.0,
         width: 100.0,
         color: CustomColors.COLOR_PURPLE_DARK,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            CustomText(text: character.name, color: CustomColors.COLOR_WHITE,fontWeight: FontWeight.bold,size: 16.0,),
-            Text("lorem"),
-            Text("lorem"),
+            CustomText(
+              text: character.name,
+              color: CustomColors.COLOR_WHITE,
+              fontWeight: FontWeight.bold,
+              size: 16.0,
+            ),
+            CustomText(
+                text: getDescription(character.description),
+                color: CustomColors.COLOR_PURPLE_LIGHT,
+                fontWeight: FontWeight.normal,
+                size: 12.0),
+            Row(
+              children: <Widget>[
+                Container(
+                    padding: EdgeInsets.only(right: 5.0),
+                    child: Image.asset(
+                      CustomIcons.ICON_NUMBER_COMICS,
+                      color: CustomColors.COLOR_WHITE,
+                      width: 20.0,
+                      height: 20.0,
+                    )),
+                Expanded(
+                    child: CustomText(
+                        text: character.comics.items.length.toString(),
+                        color: CustomColors.COLOR_PURPLE_LIGHT,
+                        fontWeight: FontWeight.normal,
+                        size: 14.0)),
+                Container(
+                    padding: EdgeInsets.only(right: 5.0),
+                    child: Image.asset(
+                      CustomIcons.ICON_NUMBER_STORIES,
+                      color: CustomColors.COLOR_WHITE,
+                      width: 20.0,
+                      height: 20.0,
+                    )),
+                Expanded(
+                    child: CustomText(
+                        text: character.stories.items.length.toString(),
+                        color: CustomColors.COLOR_PURPLE_LIGHT,
+                        fontWeight: FontWeight.normal,
+                        size: 14.0)),
+              ],
+            ),
           ],
         ),
       ),
     );
+  }
+
+  String getDescription(String description) {
+    String descriptionFormatted = "";
+    descriptionFormatted =
+        description.length > 30 ? description.substring(0, 30) : "";
+    descriptionFormatted = descriptionFormatted.length > 0
+        ? (descriptionFormatted + "...")
+        : "No description.";
+    return descriptionFormatted;
   }
 }
