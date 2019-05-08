@@ -40,8 +40,8 @@ class ComicDetail extends StatelessWidget {
 
                   //All details
                   children: <Widget>[
-                    CustomText(comic.title, 20.0, FontWeight.bold, CustomColors.COLOR_BLACK),
-                    CustomText(comic.description, 16.0, FontWeight.normal,CustomColors.COLOR_BLACK),
+                    CustomText(text: comic.title, size: 20.0, fontWeight: FontWeight.bold, color: CustomColors.COLOR_BLACK),
+                    CustomText(text: comic.description, size: 16.0, fontWeight: FontWeight.normal, color: CustomColors.COLOR_BLACK),
                     DisplayCharactersGridview(comic.characters),
                   ],
                 ),

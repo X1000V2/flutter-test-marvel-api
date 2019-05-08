@@ -59,7 +59,7 @@ class GridViewCharacterComicsState extends State<GridViewCharacterComics> {
                         child: Column(
                           children: <Widget>[
                           Image.network(url, fit: BoxFit.cover, height: 175.0,),
-                          CustomText(comic.title, 12.0, FontWeight.normal, CustomColors.COLOR_BLACK)
+                          CustomText(text: comic.title, size: 12.0, fontWeight: FontWeight.normal, color: CustomColors.COLOR_BLACK)
                         ],),
                       ),
                     );

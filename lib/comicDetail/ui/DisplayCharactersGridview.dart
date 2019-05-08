@@ -31,7 +31,7 @@ class DisplayCharactersGridviewState extends State<DisplayCharactersGridview> {
 
     return Column(
       children: <Widget>[
-        CustomText(widget.characters.items.length > 0? "Characters included in this comic":"", 18.0, FontWeight.bold,CustomColors.COLOR_BLACK),
+        CustomText(text: widget.characters.items.length > 0? "Characters included in this comic":"", size: 18.0, fontWeight: FontWeight.bold, color: CustomColors.COLOR_BLACK),
         GridView.count(
               crossAxisCount: 5,
               controller: new ScrollController(keepScrollOffset: false),
