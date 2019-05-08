@@ -11,10 +11,10 @@ class ServicesInfo{
   //service characters
   static const SERVICE_CHARACTERS = "v1/public/characters";
   static const CHARACTERS_PARAM_LIMIT = 'limit';
-  static const CHARACTERS_PARAM_LIMIT_VALUE = '10';
+  static const CHARACTERS_PARAM_LIMIT_VALUE = '80';
 
   //service comics
   static const SERVICE_COMICS = 'v1/public/comics';
   static const COMICS_PARAM_LIMIT = 'limit';
-  static const COMICS_PARAM_LIMIT_VALUE = '10';
+  static const COMICS_PARAM_LIMIT_VALUE = '80';
 }
